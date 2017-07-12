@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        font-size: 21px;
+      }
+
+      /* iPhodne 6 portrait */
+      @media only screen
+      and (min-device-width: 375px)
+      and (max-device-width: 667px)
+      and (orientation: portrait)
+      and (-webkit-min-device-pixel-ratio: 2) {
+        html {
+          font-size: 21px;
+        }
+      }
+
+      /* iPhone 6 Plus portrait */
+      @media only screen 
+      and (min-device-width: 414px) 
+      and (max-device-width: 736px) 
+      and (orientation: portrait) 
+      and (-webkit-min-device-pixel-ratio: 3) {
+        html {
+          font-size: 25px;
+        }
+      }
+
+      body {
+        background: #E5E4E3;
+      }
+
+      .screen {
+        height: 25%;
+        padding: 0 0.4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .outside {
+        border: 6px solid #D1CFCB;
+        border-radius: 0.4rem;
+        height: 4rem;
+      }
+
+      .inside {
+        border: 6px solid #26231E;
+        border-radius: 0.2rem;
+        height: 3.5rem;
+        line-height: 3.5rem;
+        font-size: 2.5rem;
+        font-weight: 500;
+        text-align: right;
+        padding-right: 0.4rem;
+      }
+
+      .control {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 75%;
+        padding: 0 0.2rem;
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-around;
+        height: 3.58rem;
+        text-align: center;
+      }
+
+      .col {
+        width: 25%;
+        height: 100%;
+      }
+     
+      .col .button {
+        width: 3.58rem;
+        height: 2.64rem;
+        line-height: 2.64rem;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: 700;
+        border: none;
+        border-radius: 0.4rem;
+        box-shadow: 2px 3px 4px 0 #A2A2A2;
+        display: inline-block;
+        text-decoration: none;
+      }
+
+      .col50 {
+        width: 50%;
+      }
+
+      .col50 .button {
+        width: 7.5rem;
+      }
+
+      .rowspan2 {
+        position: relative;
+        height: 7rem;
+      }
+
+      .rowspan2 .button {
+        height: 6.3rem;
+        line-height: 6.3rem;
+      }
+
+      .button.black {
+        background: #585858;
+        color: #FFFFFF;
+      }
+
+      .button.grey {
+        background: #898989;
+        color: #FFFFFF;
+      }
+
+      .button.white {
+        background: #F9F7F5;
+        color: #534F4C;
+      }
+
+      .button.orange {
+        background: #EC723B;
+        color: #FFFFFF;
+      }
+
+      .button:active {
+        box-shadow: 1px 1px 1px 0 #A2A2A2;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="screen">
+      <div class="outside">
+        <div class="inside" id="result">
+          88888
+        </div>
+      </div>
+    </div>
+    <div class="control">
+      <div class="row">
+        <div class="col"><a class="button black">mc</a></div>
+        <div class="col"><a class="button black">m+</a></div>
+        <div class="col"><a class="button black">m-</a></div>
+        <div class="col"><a class="button black">mr</a></div>
+      </div>
+      <div class="row">
+        <div class="col"><a class="button grey" id="clear">AC</a></div>
+        <div class="col"><a class="button grey">=</a></div>
+        <div class="col"><a class="button grey">/</a></div>
+        <div class="col"><a class="button grey">*</a></div>
+      </div>
+      <div class="row">
+        <div class="col"><a class="button white">7</a></div>
+        <div class="col"><a class="button white">8</a></div>
+        <div class="col"><a class="button white">9</a></div>
+        <div class="col"><a class="button grey">-</a></div>
+      </div>
+      <div class="row">
+        <div class="col"><a class="button white">4</a></div>
+        <div class="col"><a class="button white">5</a></div>
+        <div class="col"><a class="button white">6</a></div>
+        <div class="col"><a class="button grey">+</a></div>
+      </div>
+      <div class="row">
+        <div class="col"><a class="button white">1</a></div>
+        <div class="col"><a class="button white">2</a></div>
+        <div class="col"><a class="button white">3</a></div>
+        <div class="col rowspan2"><a class="button orange">=</a></div>
+      </div>
+      <div class="row">
+        <div class="col col50"><a class="button white">0</a></div>
+        <div class="col"><a class="button white">.</a></div>
+        <div class="col"><a class="button orange"></a></div>
+      </div>
+    </div>
+
+    <script>
+      var result = document.querySelector('#result');
+
+      document.querySelector('#clear').addEventListener('click', function() {
+        result.innerText = '0';
+      });
+
+      var greyButtons = document.querySelectorAll('.button.white');
+      for (var i = 0; i < greyButtons.length; i++) {
+        greyButtons[i].addEventListener('click', function(e) {
+          result.innerText += e.target.innerText;
+        })
+      }
+    </script>
+  </body>
+</html>

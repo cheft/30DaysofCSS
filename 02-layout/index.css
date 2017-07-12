@@ -1,0 +1,53 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #363F45;
+  height: 120%;
+}
+
+.demo {
+  width: 200px;
+  height: 200px;
+  border-radius: 3px;
+
+  line-height: 200px;
+  font-size: 20px;
+  font-weight: 300px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+.static {
+  background: #F44336;
+  position: static;
+  margin: 10px;
+  z-index: 1;
+}
+
+.absolute {
+  background: #E91E63;
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 30%;
+  left: 30%;
+  z-index: 2;
+}
+
+.relative {
+  background: #FFFFFF;
+  position: relative;
+  top: 100px;
+  left: 100px;
+
+  color: #727272;
+  z-index: 3;
+}
+
+.fixed {
+  background: #673AB7;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 1;
+}
